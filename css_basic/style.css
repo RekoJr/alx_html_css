@@ -1,41 +1,80 @@
-/* Make the <body> a flex container and arrange its children vertically */
+/* ----- Base Layout ----- */
+
+/* Body: vertical layout (header → main → footer) */
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* makes the body fill the full viewport height */
-  margin: 0; /* remove default browser margins */
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9fafc;
+  color: #333;
 }
 
-/* Make <main> a flex container arranged horizontally */
+/* Header and Footer */
+header, footer {
+  background-color: #e3e6ea;
+  padding: 1em;
+  text-align: center;
+  border: 1px solid #d1d5da;
+}
+
+/* Main: horizontal layout (article + aside) */
 main {
   display: flex;
   flex-direction: row;
-  flex: auto; /* allows <main> to grow and fill available space */
+  flex: auto;
+  border-top: 1px solid #d1d5da;
+  border-bottom: 1px solid #d1d5da;
 }
 
-/* Article takes 2/3 of the space */
+/* Article (main content) */
 article {
   flex: 2;
-  overflow-y: auto; /* allows vertical scrolling inside article */
-  padding: 1em;
+  overflow-y: auto;
+  padding: 1.5em;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
 }
 
-/* Aside takes 1/3 of the space */
+/* Aside (sidebar) */
 aside {
   flex: 1;
-  overflow-y: auto; /* allows vertical scrolling inside aside */
-  padding: 1em;
+  overflow-y: auto;
+  padding: 1.5em;
+  background-color: #f4f6f8;
 }
 
-/* Optional – to make things more readable */
-header, footer {
-  background-color: #f1f1f1;
-  padding: 1em;
-  text-align: center;
-  border: 1px solid #ddd;
+/* ----- Optional Enhancements ----- */
+
+/* Logo styling */
+.logo {
+  font-size: 2em;     /* Make it look larger like a logo */
+  margin-right: 10px; /* Space after logo */
+  vertical-align: middle;
 }
 
-main {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+/* Example header navigation list */
+header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+header li {
+  display: inline;
+  font-weight: bold;
+}
+
+header li a {
+  text-decoration: none;
+  color: #333;
+}
+
+header li a:hover {
+  color: #0073e6;
 }
